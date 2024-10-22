@@ -1,0 +1,332 @@
+User
+Atividade 1
+Botando em prática a construção de uma estrutura de dados
+Descrição
+Você foi desafiado para implementar uma estrutura de dados do zero.
+
+O que deve ser feito
+Questão 1
+Escolha uma das estruturas abaixo e desenvolva sua implementação com base nas regras da estrutura escolhida.
+
+Listas
+Filas
+Pilhas
+Deques
+
+
+Model
+4,3s
+Implementando uma Fila em Python
+Para esta atividade, escolhi implementar uma Fila em Python. As filas seguem o princípio FIFO (First In, First Out), onde o primeiro elemento a entrar na estrutura é o primeiro a sair.
+
+class Fila:
+    """Implementação de uma estrutura de dados Fila."""
+
+    def __init__(self):
+        """Inicializa a fila como uma lista vazia."""
+        self.itens = []
+
+    def enfileirar(self, item):
+        """Adiciona um item ao final da fila."""
+        self.itens.append(item)
+
+    def desenfileirar(self):
+        """Remove e retorna o item no início da fila."""
+        if not self.vazia():
+            return self.itens.pop(0)
+        else:
+            return None
+
+    def espiar(self):
+        """Retorna o item no início da fila sem removê-lo."""
+        if not self.vazia():
+            return self.itens[0]
+        else:
+            return None
+
+    def vazia(self):
+        """Verifica se a fila está vazia."""
+        return len(self.itens) == 0
+
+    def tamanho(self):
+        """Retorna o tamanho da fila."""
+        return len(self.itens)
+Use code with caution.
+Python
+Explicação da Implementação:
+Classe Fila: Define a estrutura da fila.
+
+init(self): O construtor inicializa a fila como uma lista vazia self.itens.
+
+enfileirar(self, item): Adiciona um novo item ao final da fila usando o método append() da lista.
+
+desenfileirar(self): Remove e retorna o elemento no início da fila usando pop(0). Se a fila estiver vazia, retorna None.
+
+espiar(self): Retorna o elemento no início da fila sem removê-lo. Se a fila estiver vazia, retorna None.
+
+vazia(self): Verifica se a fila está vazia comparando o tamanho da lista com 0.
+
+tamanho(self): Retorna o tamanho da fila usando len(self.itens).
+
+Exemplo de Uso:
+# Criando uma fila
+fila = Fila()
+
+# Enfileirando itens
+fila.enfileirar(1)
+fila.enfileirar(2)
+fila.enfileirar(3)
+
+# Espiando o primeiro item
+print(f"Item no início da fila: {fila.espiar()}")  # Saída: Item no início da fila: 1
+
+# Desenfileirando itens
+print(f"Item desenfileirado: {fila.desenfileirar()}")  # Saída: Item desenfileirado: 1
+print(f"Item desenfileirado: {fila.desenfileirar()}")  # Saída: Item desenfileirado: 2
+
+# Verificando se a fila está vazia
+print(f"Fila vazia: {fila.vazia()}")  # Saída: Fila vazia: False
+
+# Tamanho da fila
+print(f"Tamanho da fila: {fila.tamanho()}")  # Saída: Tamanho da fila: 1
+Use code with caution.
+Python
+Esta implementação básica de uma fila em Python demonstra a funcionalidade da estrutura FIFO, permitindo adicionar, remover e inspecionar elementos de forma ordenada.
+
+
+User
+dequs em java
+
+
+Model
+4,3s
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+public class DequeExemplo {
+
+    public static void main(String[] args) {
+
+        // Criando um Deque usando ArrayDeque
+        Deque<Integer> deque = new ArrayDeque<>();
+
+        // Adicionando elementos à frente (inicio) do Deque
+        deque.addFirst(10);
+        deque.addFirst(20);
+        deque.addFirst(30);
+
+        // Adicionando elementos ao fim (final) do Deque
+        deque.addLast(40);
+        deque.addLast(50);
+
+        // Imprimindo o Deque
+        System.out.println("Deque: " + deque); // Saída: Deque: [30, 20, 10, 40, 50]
+
+        // Removendo elementos da frente (inicio) do Deque
+        System.out.println("Removido da frente: " + deque.removeFirst()); // Saída: Removido da frente: 30
+        System.out.println("Deque: " + deque); // Saída: Deque: [20, 10, 40, 50]
+
+        // Removendo elementos do fim (final) do Deque
+        System.out.println("Removido do fim: " + deque.removeLast()); // Saída: Removido do fim: 50
+        System.out.println("Deque: " + deque); // Saída: Deque: [20, 10, 40]
+
+        // Verificando o primeiro elemento
+        System.out.println("Primeiro elemento: " + deque.peekFirst()); // Saída: Primeiro elemento: 20
+
+        // Verificando o último elemento
+        System.out.println("Último elemento: " + deque.peekLast()); // Saída: Último elemento: 40
+
+        // Verificando se o Deque está vazio
+        System.out.println("Deque vazio: " + deque.isEmpty()); // Saída: Deque vazio: false
+
+        // Limpando o Deque
+        deque.clear();
+        System.out.println("Deque vazio: " + deque.isEmpty()); // Saída: Deque vazio: true
+    }
+}
+Use code with caution.
+Java
+Explicação:
+
+Importação: Importa as classes ArrayDeque e Deque da biblioteca java.util.
+
+Criando Deque: Cria um novo Deque usando ArrayDeque.
+
+Adicionando Elementos: Usa addFirst() para adicionar elementos à frente (inicio) e addLast() para adicionar elementos ao fim (final).
+
+Removendo Elementos: Usa removeFirst() para remover elementos da frente (inicio) e removeLast() para remover elementos do fim (final).
+
+Espiando Elementos: Usa peekFirst() para visualizar o primeiro elemento e peekLast() para visualizar o último elemento sem removê-los.
+
+Verificando Vazio: Usa isEmpty() para verificar se o Deque está vazio.
+
+Limpando Deque: Usa clear() para limpar o Deque.
+
+Principais Métodos do Deque:
+
+addFirst(E e): Adiciona um elemento à frente do Deque.
+
+addLast(E e): Adiciona um elemento ao fim do Deque.
+
+removeFirst(): Remove e retorna o elemento à frente do Deque.
+
+removeLast(): Remove e retorna o elemento ao fim do Deque.
+
+peekFirst(): Retorna o elemento à frente do Deque sem removê-lo.
+
+peekLast(): Retorna o elemento ao fim do Deque sem removê-lo.
+
+isEmpty(): Verifica se o Deque está vazio.
+
+clear(): Limpa o Deque.
+
+Observação: A classe ArrayDeque é uma implementação de Deque baseada em array que oferece desempenho eficiente para operações de adicionar e remover em ambas as extremidades.
+
+
+User
+Pensando em qual a melhor estrutura de dados a ser utilizada
+Descrição
+Você está desenvolvendo um sistema de gerenciamento de pedidos de uma cafeteria, e foi escalado para criar a regra de negócio do coração da aplicação.
+
+Regra de negócio
+Os pedidos chegam em uma sequência contínua e devem ser processados em ordem de chegada, mas há três situações especiais a serem consideradas:
+
+Clientes VIP devem ter seus pedidos processados com prioridade máxima.
+
+Clientes que cancelam um pedido devem ser removidos da lista de pedidos pendentes.
+
+Em determinados momentos, o gerente pode querer visualizar os pedidos em espera sem removê-los do sistema.
+
+O que deve ser feito?
+Questão 1 ( Obrigatória )
+Escreva em documento no formato markdown defendendo sua escolha sobre a estrutura de dados a ser utilizada para o problema.
+
+Questão 2 ( Opcional )
+Você deve criar uma classe de negócio que seja capaz de executar as funcionalidades abaixo:
+
+Funcionalidades
+Adicionar um novo pedido.
+Processar o próximo pedido.
+Visualizar os pedidos na fila sem removê-los.
+Remover um pedido cancelado.
+Atualizar a prioridade do pedido na fila.
+
+
+Model
+6,3s
+Escolha da Estrutura de Dados para o Sistema de Gerenciamento de Pedidos
+Para o sistema de gerenciamento de pedidos da cafeteria, a melhor estrutura de dados a ser utilizada é uma fila com prioridade. Esta estrutura combina as características de uma fila tradicional (FIFO) com a capacidade de dar prioridade a certos elementos.
+
+Justificativa:
+
+FIFO: A natureza da fila garante que os pedidos sejam processados na ordem de chegada, garantindo a justiça para os clientes.
+
+Prioridade: A fila com prioridade permite que os pedidos VIPs sejam atendidos primeiro, sem prejudicar a ordem de chegada dos demais pedidos.
+
+Cancelamento: A remoção de um pedido cancelado pode ser realizada de forma eficiente, pois a estrutura permite acesso direto ao elemento a ser removido.
+
+Visualização: A estrutura permite a visualização dos pedidos em espera sem a necessidade de removê-los da fila, satisfazendo o requisito do gerente.
+
+Comparação com outras Estruturas:
+
+Lista Simples: Não oferece a funcionalidade de prioridade e a remoção de um elemento no meio da lista pode ser ineficiente.
+
+Pilha: Segue o princípio LIFO (Last In, First Out), não se adequando à ordem de chegada dos pedidos.
+
+Hash Table: Permite acesso rápido a elementos por chave, mas não preserva a ordem de chegada dos pedidos.
+
+Implementação:
+
+A fila com prioridade pode ser implementada utilizando uma estrutura de dados como:
+
+Heap Binário: Estrutura de dados baseada em árvore que permite a inserção, remoção e atualização de elementos de forma eficiente, mantendo a ordem de prioridade.
+
+Lista Ligada com Prioridade: Lista ligada que armazena os elementos ordenados por prioridade, facilitando a manipulação da fila.
+
+Questão 2: Classe de Negócio
+
+import java.util.PriorityQueue;
+
+class Pedido {
+    int id;
+    String cliente;
+    boolean vip;
+
+    public Pedido(int id, String cliente, boolean vip) {
+        this.id = id;
+        this.cliente = cliente;
+        this.vip = vip;
+    }
+}
+
+class SistemaPedidos {
+    private PriorityQueue<Pedido> filaPedidos;
+
+    public SistemaPedidos() {
+        filaPedidos = new PriorityQueue<>((p1, p2) -> {
+            if (p1.vip && !p2.vip) {
+                return -1; // VIP tem prioridade
+            } else if (!p1.vip && p2.vip) {
+                return 1;
+            } else {
+                return p1.id - p2.id; // Ordena por ID se não for VIP
+            }
+        });
+    }
+
+    public void adicionarPedido(int id, String cliente, boolean vip) {
+        filaPedidos.offer(new Pedido(id, cliente, vip));
+    }
+
+    public Pedido processarProximoPedido() {
+        return filaPedidos.poll();
+    }
+
+    public void visualizarPedidos() {
+        for (Pedido pedido : filaPedidos) {
+            System.out.println("ID: " + pedido.id + ", Cliente: " + pedido.cliente + ", VIP: " + pedido.vip);
+        }
+    }
+
+    public void removerPedido(int id) {
+        filaPedidos.removeIf(pedido -> pedido.id == id);
+    }
+
+    public void atualizarPrioridade(int id, boolean vip) {
+        for (Pedido pedido : filaPedidos) {
+            if (pedido.id == id) {
+                pedido.vip = vip;
+                filaPedidos.remove(pedido); // Remove e reinserir para atualizar a prioridade
+                filaPedidos.offer(pedido);
+                break;
+            }
+        }
+    }
+}
+Use code with caution.
+Java
+Exemplo de Uso:
+
+public static void main(String[] args) {
+    SistemaPedidos sistema = new SistemaPedidos();
+
+    sistema.adicionarPedido(1, "João", false);
+    sistema.adicionarPedido(2, "Maria", true);
+    sistema.adicionarPedido(3, "Pedro", false);
+
+    sistema.visualizarPedidos(); // Imprime os pedidos na fila
+
+    System.out.println("Próximo pedido: " + sistema.processarProximoPedido().cliente); // Imprime Maria (VIP)
+
+    sistema.removerPedido(3); // Remove o pedido do Pedro
+
+    sistema.atualizarPrioridade(1, true); // João agora é VIP
+
+    sistema.visualizarPedidos(); // Imprime os pedidos atualizados
+}
+Use code with caution.
+Java
+Conclusão:
+
+A fila com prioridade é a estrutura de dados mais adequada para o sistema de gerenciamento de pedidos da cafeteria, pois oferece a flexibilidade necessária para lidar com as diferentes necessidades do negócio, incluindo prioridades, cancelamentos e visualizações.
+
